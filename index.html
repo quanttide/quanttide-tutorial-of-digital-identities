@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="示例章" href="1_example_chapter/README.html" />
+    <link rel="next" title="认证" href="identification/README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,25 +174,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">示例部分</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="1_example_chapter/README.html">示例章</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="1_example_chapter/1_example_section/README.html">示例节1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="1_example_chapter/1_example_section/1_example_article.html">测试文章</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_example_chapter/1_example_section/1_example_article2.html">测试文章2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="1_example_chapter/2_example_article3.html">测试文章3</a></li>
-</ul>
-</details></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">示例部分2</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="2_example_chapter2/README.html">示例章2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_example_chapter2/1_example_section2/README.html">示例节2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="3_example_chapter3/README.html">示例章2</a></li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="identification/README.html">认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorization/README.html">授权</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/README.html">鉴权</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access_control/README.html">访问控制</a></li>
 </ul>
 
     </div>
@@ -318,7 +304,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -334,6 +322,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">什么是数字身份管理？</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">企业的数字身份管理相比于个人有什么难点？</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">如何应对这些问题？</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -345,8 +343,34 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>简介<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-</div>
+<section id="id2">
+<h2>什么是数字身份管理？<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>数字身份管理​​就像你在网上用的“学生证+钥匙串”。你的“学生证”（比如用户名、邮箱）证明你是谁，而“钥匙串”（比如密码、指纹）用来解锁不同的账号（如微信、游戏、网课平台）。它的作用就是确保只有你能用自己的身份登录，防止别人冒充你，同时帮你管理一大堆账号的权限（比如家长能看你的成绩单，但同学不能）。简单说：​​管好你是“谁”、能“进哪里”、别被人盗号​​。</p>
+</section>
+<section id="id3">
+<h2>企业的数字身份管理相比于个人有什么难点？<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>​​规模大、角色杂​​。企业要管理成百上千的员工账号（比如销售、财务、IT），每个人权限不同。就像学校要管理全校师生的门禁卡，但校长能进所有办公室，学生只能进教室。
+​​
+动态调整难​​。员工离职、转岗时权限必须立刻更新（比如前员工用旧账号偷数据）。类似毕业班学生离校后，门禁卡要马上失效，但现实中经常漏掉。
+​​
+系统多、标准乱​​。企业用几十种软件（邮箱、ERP、CRM），每个系统登录方式不同。就像学校食堂用饭卡、图书馆用学生证、实验室用指纹，但互相不联通。
+​​
+安全与效率矛盾​​。安全要求多重验证（密码+短信+刷脸），但员工嫌麻烦。好比学校为了防止作弊，要求每次考试验指纹+查身份证，学生觉得耽误时间。
+​​
+黑客攻击风险高​​。企业账号更值钱（能偷客户数据/转钱），黑客会用钓鱼邮件、木马病毒专门攻击。就像小偷不会偷学生书包，但会盯上学校的保险柜。</p>
+</section>
+<section id="id4">
+<h2>如何应对这些问题？<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>统一身份认证。比如，学校用一张校园卡同时搞定饭卡、图书证、门禁，员工一个账号登录所有办公系统。
+​​
+自动化权限管理​​。比如，新生入学自动获得班级权限，转班时系统自动调整（类似HR系统对接IT系统自动调岗）
+​​
+零信任安全模型​​。比如，在学校实验室中，就算你有门禁卡，每次取危险化学品仍需二次审批。
+​​
+多因素认证（MFA）​​。比如，有的保险箱可能需要钥匙+密码双重验证。
+​​
+用户行为分析。比如，学校监控系统发现某学生半夜频繁进出财务室会自动报警。</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -382,11 +406,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="1_example_chapter/README.html"
+       href="identification/README.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">示例章</p>
+        <p class="prev-next-title">认证</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -396,6 +420,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">什么是数字身份管理？</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">企业的数字身份管理相比于个人有什么难点？</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">如何应对这些问题？</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
